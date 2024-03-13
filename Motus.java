@@ -5,26 +5,26 @@ import java.util.Arrays;
 public class Motus {
 
 	public static void main(String[] args) {
-		//Saisie du mot à deviner
-		String Mot = Saisie.lire_String("L'ordinateur saisit un mot de mininum 5 lettres :");
+		//Saisie du mot Ã  deviner
+		String Mot = Saisie.lire_String("L'utilisateur saisit un mot de mininum 5 lettres :");
 		while (Mot.length() < 5)
 		{
-			Mot = Saisie.lire_String("Erreur, l'ordinateur doit saisir un mot de minimum 5 lettres :");
+			Mot = Saisie.lire_String("Erreur, l'utilisateur doit saisir un mot de minimum 5 lettres :");
 		}
 		char[] MotSaisi = Mot.toCharArray();
 		
-		//Déclaration et instanciation des variables de la boucle
+		//DÃ©claration et instanciation des variables de la boucle
 		int LongueurMot = MotSaisi.length, Essais = LongueurMot - 2, x = 0;
 		boolean fin = false;
 		char[] LettresCommunes = new char[LongueurMot];
 		
-		//Boucle qui s'exécute tant que le mot n'est pas trouvé ou qu'il reste des essais pour le trouver
+		//Boucle qui s'exÃ©cute tant que le mot n'est pas trouvÃ© ou qu'il reste des essais pour le trouver
 		while(Essais != 0 && fin == false)
 		{
-			//Saisie d'un essai de mot à deviner
-			String Essai = Saisie.lire_String("Vous avez " + Essais + " essais pour deviner le mot de " + LongueurMot + " lettres (tapez SOL pour arrêter) :");
+			//Saisie d'un essai de mot Ã  deviner
+			String Essai = Saisie.lire_String("Vous avez " + Essais + " essais pour deviner le mot de " + LongueurMot + " lettres (tapez SOL pour arrÃªter) :");
 			
-			//La solution s'affiche si l'utilisateur décide de taper SOL
+			//La solution s'affiche si l'utilisateur dÃ©cide de taper SOL
 			if (Essai.equals("SOL"))
 			{
 				Essais = 0;
@@ -32,19 +32,19 @@ public class Motus {
 			}
 			while (Essai.length() != LongueurMot)
 			{
-				Essai = Saisie.lire_String("Erreur, le mot à deviner contient " + LongueurMot + " lettres :");
+				Essai = Saisie.lire_String("Erreur, le mot Ã  deviner contient " + LongueurMot + " lettres :");
 			}
 			char[] EssaiSaisi = Essai.toCharArray();
 			Essais--;
 			int NbrLettresCommunes = 0;
 			
-			//Si le mot est trouvé, fin du jeu
+			//Si le mot est trouvÃ©, fin du jeu
 			if(Arrays.equals(EssaiSaisi, MotSaisi))
 			{
 				fin = true;
 			}
 		
-			//Sinon on cherche et affiche les lettres communes entre le mot à deviner et le mot de l'essai
+			//Sinon on cherche et affiche les lettres communes entre le mot Ã  deviner et le mot de l'essai
 			else
 			{
 				for (x=0; x < LongueurMot; x++)
@@ -59,8 +59,8 @@ public class Motus {
 						LettresCommunes[x] = '_';
 					}
 				}				
-				//Affichage et comptage des lettres communes et bien placées
-				System.out.print("Vous avez trouvé " + NbrLettresCommunes + " lettres qui sont les suivantes : ");
+				//Affichage et comptage des lettres communes et bien placÃ©es
+				System.out.print("Vous avez trouvÃ© " + NbrLettresCommunes + " lettres qui sont les suivantes : ");
 				for (x=0; x < LongueurMot; x++)
 				{
 					System.out.print(LettresCommunes[x] + " ");
@@ -69,7 +69,7 @@ public class Motus {
 			}
 		}
 		//Messages qui s'affichent si le joueur perd ou gagne
-		if (Essais == 0) System.out.println("Perdu ! Le mot était " + Mot);
-		else System.out.println("Félicitations, vous avez deviné le mot en " + (Essais) + " essai(s) !");	
+		if (Essais == 0) System.out.println("Perdu ! Le mot Ã©tait " + Mot);
+		else System.out.println("FÃ©licitations, vous avez devinÃ© le mot en " + (Essais) + " essai(s) !");	
 	}
 	}
